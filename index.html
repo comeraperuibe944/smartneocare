@@ -1673,51 +1673,164 @@
 
         @media (max-width: 1024px) {
             .portal-hero {
-                grid-template-columns: 1fr;
-                padding: 28px 20px 48px;
+                grid-template-columns: minmax(0, 1fr);
+                padding: 28px 16px 48px;
                 text-align: center;
+                width: 100%;
+                max-width: 100vw;
+                overflow: hidden;
             }
-            .hero-left {
+            .hero-left,
+            .hero-right {
                 align-items: center;
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
             }
             .hero-kicker {
                 align-self: center;
+                max-width: 100%;
+                white-space: normal;
+                text-align: center;
+            }
+            .hero-title,
+            .hero-subtitle {
+                max-width: 100%;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
             }
             .hero-cta-group {
                 justify-content: center;
+                width: 100%;
+                max-width: 100%;
+            }
+            .hero-meta-grid {
+                width: 100%;
+                max-width: 100%;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .stage-container {
+                width: 100%;
+                max-width: 100%;
+                min-height: auto;
+                padding: 12px 0 24px;
+                overflow: hidden;
+            }
+            .phone-stage-wrapper {
+                width: 100%;
+                max-width: 100%;
+            }
+            .phone-wrapper {
+                width: 100%;
+                max-width: min(380px, calc(100vw - 36px));
+                margin: 0 auto;
+            }
+            .portal-section {
+                padding: 52px 16px;
+                width: 100%;
+                max-width: 100vw;
+                overflow: hidden;
+            }
+            .portal-footer {
+                padding: 44px 16px 32px;
+                width: 100%;
+                max-width: 100vw;
+                overflow: hidden;
             }
             .screenshots-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
             .specs-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
             .footer-inner {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
             .portal-nav-links {
                 display: none;
             }
             .portal-navbar {
-                padding: 0 18px;
+                padding: 0 14px;
+                width: 100%;
+                max-width: 100vw;
             }
         }
 
         @media (max-width: 600px) {
+            .portal-navbar {
+                padding: 0 12px;
+                gap: 8px;
+            }
+            .portal-brand {
+                gap: 8px;
+                min-width: 0;
+            }
+            .portal-brand-text {
+                font-size: 1rem;
+                white-space: nowrap;
+            }
+            .portal-version-tag {
+                display: none;
+            }
+            .portal-nav-right {
+                gap: 8px;
+            }
+            .portal-nav-download-btn {
+                padding: 7px 11px;
+                font-size: 0.78rem;
+                white-space: nowrap;
+            }
+            .portal-hero {
+                padding: 20px 14px 36px;
+                gap: 28px;
+            }
             .hero-title {
-                font-size: 2.1rem;
+                font-size: 1.85rem;
+                line-height: 1.18;
+            }
+            .hero-subtitle {
+                font-size: 0.94rem;
+                line-height: 1.55;
+            }
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .btn-hero-primary,
+            .btn-hero-store {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            .hero-meta-grid {
+                gap: 8px;
+            }
+            .hero-meta-val {
+                font-size: 0.98rem;
+            }
+            .hero-meta-lbl {
+                font-size: 0.68rem;
+            }
+            .phone-wrapper {
+                width: 100%;
+                max-width: calc(100vw - 28px);
+                height: 750px;
+                max-height: none;
+                margin: 0 auto;
             }
             .screenshots-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
             .footer-inner {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 24px;
             }
         }
 
         /* ==========================================================================
            MODO APLICATIVO NATIVO INSTALADO (PWA STANDALONE / TELA CHEIA)
-           Quando aberto pelo atalho PWA (?pwa=1 ou display-mode: standalone),
+           Quando aberto pelo atalho PWA (?pwa, ?pwa=1 ou display-mode: standalone),
            oculta 100% da página de download e da carcaça 3D do celular, exibindo
            exclusivamente o aplicativo Smart NeoCare em tela cheia nativa!
            ========================================================================== */
@@ -1726,7 +1839,8 @@
             color: var(--texto-principal) !important;
             overflow: hidden !important;
             height: 100dvh !important;
-            width: 100vw !important;
+            width: 100% !important;
+            max-width: 100vw !important;
         }
 
         body.pwa-standalone-mode .portal-navbar,
@@ -1752,7 +1866,7 @@
         body.pwa-standalone-mode .stage-container,
         body.pwa-standalone-mode .phone-stage-wrapper {
             display: block !important;
-            width: 100vw !important;
+            width: 100% !important;
             height: 100dvh !important;
             max-width: 100vw !important;
             min-height: 100dvh !important;
@@ -1762,15 +1876,19 @@
         }
 
         body.pwa-standalone-mode .phone-wrapper {
-            width: 100vw !important;
+            width: 100% !important;
+            max-width: 100vw !important;
             height: 100dvh !important;
+            max-height: 100dvh !important;
+            margin: 0 !important;
             transform: none !important;
             filter: none !important;
         }
 
         body.pwa-standalone-mode .phone-chassis,
         body.pwa-standalone-mode .phone-bezel {
-            width: 100vw !important;
+            width: 100% !important;
+            max-width: 100vw !important;
             height: 100dvh !important;
             padding: 0 !important;
             border-radius: 0 !important;
@@ -1779,8 +1897,10 @@
         }
 
         body.pwa-standalone-mode .phone-screen {
-            width: 100vw !important;
+            width: 100% !important;
+            max-width: 100vw !important;
             height: 100dvh !important;
+            padding-top: 0 !important;
             border-radius: 0 !important;
             background: var(--fundo-creme) !important;
         }
@@ -1799,12 +1919,13 @@
 </head>
 <body>
 <script>
-    // Detecção instantânea de execução via Atalho PWA (sem flash da página de download)
+    // Detecção instantânea de execução via Atalho PWA (?pwa, ?pwa=1 ou standalone)
     (function() {
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
                              window.navigator.standalone === true ||
-                             window.location.search.includes('pwa=1') ||
-                             window.location.hash === '#app';
+                             window.location.search.toLowerCase().includes('pwa') ||
+                             window.location.hash === '#app' ||
+                             window.location.hash === '#pwa';
         if (isStandalone) {
             document.body.classList.add('pwa-standalone-mode');
         }
