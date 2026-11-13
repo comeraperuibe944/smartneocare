@@ -1,0 +1,158 @@
+{
+  "MobileNetV2": {
+    "parameters_M": 3.504872,
+    "latency_ms": 4.0609898759071585,
+    "anemia_accuracy": 0.5433403805496829,
+    "anemia_acc_ci": [
+      0.5010570824524313,
+      0.5856236786469344
+    ],
+    "anemia_auc": 0.6007514450867051,
+    "anemia_sensitivity": 0.4866666666666667,
+    "anemia_specificity": 0.6416184971098265,
+    "anemia_precision": 0.7019230769230769,
+    "anemia_f1": 0.5748031496062992,
+    "jaundice_accuracy": 0.6257928118393234,
+    "jaundice_auc": 0.38658614113159573,
+    "cm": [
+      [
+        111,
+        62
+      ],
+      [
+        154,
+        146
+      ]
+    ]
+  },
+  "ResNet50": {
+    "parameters_M": 25.557032,
+    "latency_ms": 7.21341877864832,
+    "anemia_accuracy": 0.6131078224101479,
+    "anemia_acc_ci": [
+      0.5665961945031712,
+      0.6553911205073996
+    ],
+    "anemia_auc": 0.6810404624277455,
+    "anemia_sensitivity": 0.5266666666666666,
+    "anemia_specificity": 0.7630057803468208,
+    "anemia_precision": 0.7939698492462312,
+    "anemia_f1": 0.6332665330661322,
+    "jaundice_accuracy": 0.5983086680761099,
+    "jaundice_auc": 0.3958253867344776,
+    "cm": [
+      [
+        132,
+        41
+      ],
+      [
+        142,
+        158
+      ]
+    ]
+  },
+  "DenseNet121": {
+    "parameters_M": 7.978856,
+    "latency_ms": 7.249377345896691,
+    "anemia_accuracy": 0.6511627906976745,
+    "anemia_acc_ci": [
+      0.6067653276955602,
+      0.693446088794926
+    ],
+    "anemia_auc": 0.7115606936416186,
+    "anemia_sensitivity": 0.5866666666666667,
+    "anemia_specificity": 0.7630057803468208,
+    "anemia_precision": 0.8110599078341014,
+    "anemia_f1": 0.6808510638297872,
+    "jaundice_accuracy": 0.6680761099365751,
+    "jaundice_auc": 0.41989828353464714,
+    "cm": [
+      [
+        132,
+        41
+      ],
+      [
+        124,
+        176
+      ]
+    ]
+  },
+  "VGG16": {
+    "parameters_M": 138.357544,
+    "latency_ms": 11.399804746340712,
+    "anemia_accuracy": 0.6405919661733616,
+    "anemia_acc_ci": [
+      0.5983086680761099,
+      0.6807610993657506
+    ],
+    "anemia_auc": 0.6744123314065511,
+    "anemia_sensitivity": 0.69,
+    "anemia_specificity": 0.5549132947976878,
+    "anemia_precision": 0.7288732394366197,
+    "anemia_f1": 0.708904109589041,
+    "jaundice_accuracy": 0.6236786469344608,
+    "jaundice_auc": 0.46433566433566437,
+    "cm": [
+      [
+        96,
+        77
+      ],
+      [
+        93,
+        207
+      ]
+    ]
+  },
+  "EfficientNet-B0": {
+    "parameters_M": 5.288548,
+    "latency_ms": 4.222282354238314,
+    "anemia_accuracy": 0.653276955602537,
+    "anemia_acc_ci": [
+      0.6088794926004228,
+      0.6955602536997886
+    ],
+    "anemia_auc": 0.7208092485549134,
+    "anemia_sensitivity": 0.5866666666666667,
+    "anemia_specificity": 0.7687861271676301,
+    "anemia_precision": 0.8148148148148148,
+    "anemia_f1": 0.6821705426356589,
+    "jaundice_accuracy": 0.5961945031712473,
+    "jaundice_auc": 0.38425513880059337,
+    "cm": [
+      [
+        133,
+        40
+      ],
+      [
+        124,
+        176
+      ]
+    ]
+  },
+  "InceptionV3": {
+    "parameters_M": 27.161264,
+    "latency_ms": 5.779666445827342,
+    "anemia_accuracy": 0.5496828752642706,
+    "anemia_acc_ci": [
+      0.5031712473572939,
+      0.5940803382663847
+    ],
+    "anemia_auc": 0.6272832369942196,
+    "anemia_sensitivity": 0.42333333333333334,
+    "anemia_specificity": 0.7687861271676301,
+    "anemia_precision": 0.7604790419161677,
+    "anemia_f1": 0.5438972162740899,
+    "jaundice_accuracy": 0.6342494714587738,
+    "jaundice_auc": 0.3507098961644416,
+    "cm": [
+      [
+        133,
+        40
+      ],
+      [
+        173,
+        127
+      ]
+    ]
+  }
+}

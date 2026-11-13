@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Comparative Analysis of Transfer Learning Architectures for Feature Extraction in Non-Invasive Neonatal Anemia and Jaundice Screening</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin-top: 0.75in;
+    margin-bottom: 1.0in;
+    margin-left: 0.63in;
+    margin-right: 0.63in;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10pt;
+    line-height: 1.12;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    text-align: justify;
+  }
+
+  /* IEEE Title and Authors: 1 Full-Width Column */
+  .header-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12pt;
+  }
+  .paper-title {
+    font-size: 24pt;
+    font-weight: normal;
+    line-height: 1.12;
+    margin-bottom: 14pt;
+    letter-spacing: -0.2pt;
+  }
+  .authors-grid {
+    display: table;
+    width: 100%;
+    margin-bottom: 8pt;
+  }
+  .author-col {
+    display: table-cell;
+    width: 25%;
+    text-align: center;
+    vertical-align: top;
+    padding: 0 4pt;
+  }
+  .author-name {
+    font-size: 10.5pt;
+    font-weight: normal;
+    margin-bottom: 2pt;
+  }
+  .author-affil {
+    font-size: 8pt;
+    line-height: 1.18;
+    font-style: normal;
+    color: #111;
+  }
+  .author-email {
+    font-size: 8pt;
+    font-family: "Courier New", monospace;
+    margin-top: 2pt;
+  }
+
+  /* 2-Column Body Layout */
+  .two-column-body {
+    column-count: 2;
+    column-gap: 0.25in;
+    column-fill: balance;
+    width: 100%;
+  }
+
+  /* Headings */
+  h1.section-heading {
+    font-size: 10pt;
+    font-weight: normal;
+    text-align: center;
+    font-variant: small-caps;
+    margin-top: 7pt;
+    margin-bottom: 1.8pt;
+    break-after: avoid;
+  }
+  h2.subsection-heading {
+    font-size: 10pt;
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 6pt;
+    margin-bottom: 2pt;
+    break-after: avoid;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1.8pt;
+    text-indent: 14pt;
+    line-height: 1.12;
+  }
+  p.no-indent {
+    text-indent: 0;
+  }
+
+  .abstract-box {
+    margin-bottom: 6pt;
+  }
+  .abstract-label {
+    font-weight: bold;
+    font-style: italic;
+  }
+  .index-terms-label {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  /* Tables */
+  .table-container {
+    width: 100%;
+    margin: 3.5pt 0;
+    break-inside: avoid;
+    text-align: center;
+  }
+  .table-title {
+    font-size: 8pt;
+    font-weight: normal;
+    font-variant: small-caps;
+    text-align: center;
+    margin-bottom: 3pt;
+  }
+  table.ieee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.5pt;
+    margin: 0 auto;
+    text-align: center;
+  }
+  table.ieee-table th {
+    border-top: 1.2pt solid #000;
+    border-bottom: 0.6pt solid #000;
+    padding: 2.5pt 2pt;
+    font-weight: bold;
+    background-color: #fafafa;
+  }
+  table.ieee-table td {
+    padding: 2pt 2pt;
+    border-top: none;
+    border-bottom: none;
+  }
+  table.ieee-table tr.last-row td {
+    border-bottom: 1.2pt solid #000;
+  }
+  .highlight-row {
+    font-weight: bold;
+    background-color: #f0f7ff;
+  }
+
+  /* Figures */
+  .figure-container {
+    width: 100%;
+    margin: 3.5pt 0;
+    break-inside: avoid;
+    text-align: center;
+  }
+  .figure-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .figure-caption {
+    font-size: 8pt;
+    text-align: justify;
+    margin-top: 3pt;
+    margin-bottom: 4pt;
+    line-height: 1.12;
+  }
+  .figure-caption strong {
+    font-weight: normal;
+  }
+
+  /* Full Width Span */
+  .full-width {
+    column-span: all;
+    margin: 8pt 0;
+    break-inside: avoid;
+  }
+
+  /* References */
+  .reference-item {
+    font-size: 8pt;
+    line-height: 1.12;
+    margin-bottom: 1.8pt;
+    text-indent: -14pt;
+    padding-left: 14pt;
+    text-align: justify;
+  }
+
+  /* Math Equations */
+  .equation {
+    text-align: center;
+    margin: 2.5pt 0;
+    font-style: italic;
+    font-size: 9.5pt;
+  }
+  .eq-num {
+    float: right;
+    font-style: normal;
+  }
+</style>
+</head>
+<body>
+
+<!-- FULL-WIDTH TITLE AND AUTHORS -->
+<div class="header-container">
+  <div class="paper-title">
+    Comparative Analysis of Transfer Learning Architectures for Feature Extraction in Non-Invasive Neonatal Anemia and Jaundice Screening
+  </div>
+  <div class="authors-grid">
+    <div class="author-col">
+      <div class="author-name">Juan Santos Trigo Nasser</div>
+      <div class="author-affil">
+        Dept. of Computing<br>
+        Instituto Federal de São Paulo (IFSP)<br>
+        Campus Jacareí, SP, Brazil
+      </div>
+      <div class="author-email">juan.nasser@ifsp.edu.br</div>
+    </div>
+    <div class="author-col">
+      <div class="author-name">Ana Paula A. de Castro e Shiguemori</div>
+      <div class="author-affil">
+        Dept. of Computing<br>
+        Instituto Federal de São Paulo (IFSP)<br>
+        Campus Jacareí, SP, Brazil
+      </div>
+      <div class="author-email">anapaula.acs@ifsp.edu.br</div>
+    </div>
+    <div class="author-col">
+      <div class="author-name">Elcio Hideiti Shiguemori</div>
+      <div class="author-affil">
+        Dept. of Computing<br>
+        Inst. for Advanced Studies (IEAv)<br>
+        São José dos Campos, SP, Brazil
+      </div>
+      <div class="author-email">elciohs@gmail.com</div>
+    </div>
+    <div class="author-col">
+      <div class="author-name">Cristina Ortiz Sobrinho Valete</div>
+      <div class="author-affil">
+        Dept. of Medicine<br>
+        Universidade Federal de São Carlos (UFSCar)<br>
+        São Carlos, SP, Brazil
+      </div>
+      <div class="author-email">cristina.ortiz@ufscar.br</div>
+    </div>
+  </div>
+</div>
+
+<!-- TWO COLUMN BODY CONTENT -->
+<div class="two-column-body">
+
+  <!-- Abstract & Index Terms -->
+  <div class="abstract-box">
+    <p class="no-indent">
+      <span class="abstract-label">Abstract - </span>Neonatal anemia and hyperbilirubinemia (jaundice) represent two of the most critical and ubiquitous clinical pathologies in neonatal intensive care units (NICUs). Untreated hyperbilirubinemia presents severe neurotoxic hazards, including acute bilirubin encephalopathy and irreversible kernicterus, while severe anemia compromises systemic oxygenation and organogenesis in low-birth-weight infants. Standard clinical monitoring necessitates repetitive, invasive blood draws via venipuncture or capillary heel-pricks, which trigger iatrogenic blood loss, stress, local tissue trauma, and severe turnaround bottlenecks in rural and low-resource healthcare clinics. In this paper, we propose Smart NeoCare, an automated, non-invasive point-of-care screening cascade leveraging digital smartphone photography of neonatal nail beds. We present a rigorous, fair, and comprehensive comparative benchmark evaluating six canonical deep convolutional transfer learning architectures (MobileNetV2, EfficientNet-B0, DenseNet121, ResNet50, InceptionV3, and VGG16) evaluated on a clinically verified dataset of 1,342 neonatal nailbed images across 41 neonates selected from an extended 179-infant clinical study cohort under strict patient-stratified group isolation (31 training / 10 testing). Our empirical evaluation reveals that out-of-the-box frozen feature extraction provides baseline discriminative representations (up to 65.33% accuracy and 0.7208 AUC with EfficientNet-B0 and 65.12% accuracy with DenseNet121). Crucially, when subjected to domain-specific fine-tuning, the lightweight MobileNetV2 architecture achieves an outstanding 93.31% screening accuracy and 0.9416 AUC for neonatal anemia, and 92.57% accuracy and 0.9380 AUC for jaundice, while requiring only 3.50 million parameters and 4.06 ms inference latency. A multimodal ablation study confirms that integrating clinical covariates (gestational age, birth weight, phototherapy) with visual features elevates diagnostic sensitivity to 91.91% and specificity to 94.74%, while reducing Brier calibration loss to 0.058. These results demonstrate that lightweight inverted residual architectures offer a favorable balance between predictive performance and computational efficiency for ubiquitous, low-cost point-of-care mobile screening.
+    </p>
+    <p class="no-indent">
+      <span class="index-terms-label">Index Terms - </span>Neonatal Anemia, Hyperbilirubinemia, Transfer Learning, Deep Feature Extraction, MobileNetV2, YOLO11, Computer-Aided Diagnosis (CAD), Non-Invasive Screening.
+    </p>
+  </div>
+
+  <!-- SECTION I: INTRODUCTION -->
+  <h1 class="section-heading">I. Introduction</h1>
+  <p>
+    Neonatal anemia and hyperbilirubinemia (neonatal jaundice) are two of the most prevalent clinical challenges encountered in neonatal care globally, affecting over 60% of term neonates and more than 80% of preterm infants during the first weeks of life [1, 2]. Jaundice results from the accumulation of unconjugated serum bilirubin, a neurotoxic metabolite produced during the rapid breakdown of fetal erythrocytes. When serum bilirubin concentrations exceed the binding capacity of serum albumin, free lipophilic bilirubin traverses the permeable blood-brain barrier of the neonate, precipitating apoptosis in the basal ganglia, subthalamic nuclei, and auditory brainstem pathways [2]. If left unmonitored and untreated with phototherapy or exchange transfusion, acute bilirubin encephalopathy rapidly progresses to chronic kernicterus spectrum disorder, characterized by choreoathetoid cerebral palsy, severe sensorineural hearing loss, upward gaze palsy, and profound cognitive deficits [2]. Concurrently, neonatal anemia impairs systemic tissue oxygen delivery, compounding cardiorespiratory distress, poor feeding, necrotizing enterocolitis, and impaired neurodevelopment [3].
+  </p>
+  <p>
+    The established gold standard for diagnosing and monitoring both conditions relies upon invasive blood sampling - either through automated clinical laboratory hematology via venipuncture or point-of-care photometric analysis of capillary heel-prick blood [4]. Nevertheless, in extremely low-birth-weight (ELBW) and very low-birth-weight (VLBW) infants, cumulative blood loss from repetitive phlebotomies is the primary cause of hospital-acquired iatrogenic anemia, frequently necessitating red blood cell transfusions that expose neonates to transfusion-related acute lung injury, infection, and hemodynamic instability [4]. Furthermore, in peripheral maternity wards and primary healthcare centers across low- and middle-income countries (LMICs), access to benchtop analyzers, centrifuges, and trained phlebotomists is severely constrained, resulting in delayed diagnostic intervention and preventable neurodevelopmental morbidity [3].
+  </p>
+  <p>
+    Non-invasive computer-aided diagnostic (CAD) systems leveraging digital cameras and machine learning represent a transformative paradigm for point-of-care neonatal triage [5]. Optical absorption spectroscopy reveals that oxygenated hemoglobin (HbO₂) exhibits distinctive extinction coefficient peaks at 540 nm and 576 nm, while deoxygenated hemoglobin (Hb) exhibits a peak at 555 nm, and unconjugated bilirubin exhibits maximal optical extinction in the blue spectral band between 450 nm and 460 nm [5].
+  </p>
+  <p>
+    While adult screening studies have predominantly examined the ocular conjunctiva or palmar creases, the neonatal nail bed provides an exceptional, clinically superior optical aperture. The nail bed is naturally devoid of dense melanocytic shielding (exhibiting less than 2% of the epidermal melanin concentration found in surrounding cutaneous tissue), possesses a dense architecture of subungual capillary loops directly perpendicular to the translucent keratinized nail plate, and exhibits rapid microvascular capillary refill dynamics that directly reflect systemic hemoglobin concentration and extravasated bilirubin kinetics [5].
+  </p>
+  <p>
+    A principal challenge in developing clinical deep learning models is dataset scarcity and label acquisition costs. Transfer learning addresses this limitation by transferring structural visual representations learned from massive natural image corpora (such as ImageNet-1K) to specialized medical tasks [6, 7]. Following recent comparative methodologies in medical CAD [6], this study systematically investigates and benchmarks six canonical convolutional neural network transfer learning architectures for visual feature extraction from neonatal nail beds: MobileNetV2, EfficientNet-B0, DenseNet121, ResNet50, InceptionV3, and VGG16.
+  </p>
+  <p>
+    The primary contributions of this paper are fourfold:
+  </p>
+  <p class="no-indent">
+    1) We present the Smart NeoCare screening cascade combining YOLO11s anatomical nailbed localization (98.3% mAP@50) with deep feature extraction and multimodal clinical integration.
+  </p>
+  <p class="no-indent">
+    2) We provide a rigorous, transparent benchmark comparing six transfer learning architectures under both frozen feature extraction and end-to-end domain-specific fine-tuning on 1,342 verified neonatal nailbed images with strict patient-stratified group isolation.
+  </p>
+  <p class="no-indent">
+    3) We present a comprehensive multimodal ablation study demonstrating that fusing clinical demographic covariates (gestational age, birth weight, phototherapy) with visual embeddings substantially enhances diagnostic sensitivity (91.91%), specificity (94.74%), and model calibration (Brier score 0.058).
+  </p>
+  <p class="no-indent">
+    4) We establish an empirical Pareto efficiency frontier demonstrating that lightweight inverted residual architectures (MobileNetV2, 3.50M parameters, 4.06 ms latency) match or exceed the accuracy of over-parameterized models (VGG16, 138.4M parameters), enabling offline-capable deployment on low-cost smartphones.
+  </p>
+
+  <!-- SECTION II: RELATED RESEARCH -->
+  <h1 class="section-heading">II. Review of the Previous Research</h1>
+  <p>
+    Transfer learning has become an essential technique across computer-aided medical diagnosis. Bota et al. [6] evaluated six canonical transfer learning architectures (ResNet50, MobileNetV2, InceptionResNetV2, InceptionV3, VGG16, and DenseNet121) for multi-instance classification of breast ultrasound lesions, demonstrating that MobileNetV2 attained superior diagnostic performance with 84.00% accuracy and 0.946 AUC. Joshi and Gaud [8] evaluated MobileNetV2 and InceptionV3 for ultrasound mass detection, reporting 83.84% accuracy. Uysal et al. [9] and Chougrad et al. [10] evaluated deep CNN transfer learning for oncological image analysis, reporting that deep architectural topology and fine-tuning depth govern transferability across distinct medical modalities.
+  </p>
+  <p>
+    In non-invasive hematological diagnostics, Mannino et al. [5] demonstrated that digital photography of adult fingernail beds could estimate hemoglobin levels with high clinical correlation (r = 0.82), validating the subungual capillary bed as an optical aperture for microvascular blood analysis. Habermann et al. [11] investigated deep learning for conjunctival pallor screening in adults, reporting an AUC of 0.880 and emphasizing that fusing patient demographic covariates mitigates cutaneous illumination artifacts. Candolo and Shiguemori [12] developed the initial Smart NeoCare prototype, establishing the feasibility of YOLO-based nail detection in neonates. Table I presents a structured comparison between our study and related research in the literature.
+  </p>
+
+  <!-- TABLE I -->
+  <div class="table-container">
+    <div class="table-title">TABLE I.   A Comparison with Related Research</div>
+    <table class="ieee-table">
+      <thead>
+        <tr>
+          <th style="width: 25%; text-align: left;">Authors</th>
+          <th style="width: 25%;">Backbone Model</th>
+          <th style="width: 50%; text-align: left;">Domain / Primary Results</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left;">Bota et al. [6]</td>
+          <td>MobileNetV2</td>
+          <td style="text-align: left;">Acc: 84.00%, AUC: 0.946 (Breast Ultrasound CAD)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Joshi & Gaud [8]</td>
+          <td>InceptionV3</td>
+          <td style="text-align: left;">Acc: 83.84% (Ultrasound mass detection)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Uysal et al. [9]</td>
+          <td>ResNeXt / VGG16</td>
+          <td style="text-align: left;">Acc: 85.83% (Multi-class clinical classification)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Chougrad et al. [10]</td>
+          <td>VGG-FTED</td>
+          <td style="text-align: left;">F1-Score: 0.942 (Mammography transfer learning)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Mannino et al. [5]</td>
+          <td>Custom RGB Reg.</td>
+          <td style="text-align: left;">r = 0.82 Hb correlation (Adult nailbed photo)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Habermann et al. [11]</td>
+          <td>Conjunctiva CNN</td>
+          <td style="text-align: left;">AUC: 0.880 (Conjunctival anemia screening)</td>
+        </tr>
+        <tr class="highlight-row last-row">
+          <td style="text-align: left;"><strong>Our Study</strong></td>
+          <td><strong>MobileNetV2 (TL)</strong></td>
+          <td style="text-align: left;"><strong>Acc: 93.31%, AUC: 0.9416 (Anemia); Acc: 92.57% (Jaundice)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION III: METHODOLOGY -->
+  <h1 class="section-heading">III. Materials and Methodology</h1>
+  
+  <h2 class="subsection-heading">A. Ethical Compliance and Clinical Cohort Dataset</h2>
+  <p>
+    This clinical investigation was conducted in strict compliance with the ethical standards established by the Brazilian National Health Council (Resolution CNS 466/2012 for health-related human subject research) and received formal Institutional Review Board approval from the Human Research Ethics Committee (CEP) of the Universidade Federal de São Carlos (UFSCar) under clinical protocol with Hospital Universitário (HU-UFSCar). Written informed consent was secured from the parents or legal guardians of all participating neonates prior to imaging. The broader clinical study recruited an overall cohort of 179 neonates admitted to neonatal healthcare units, providing 1,324 multi-parameter observation records with laboratory blood analyses. From this general registry, a curated benchmark dataset was established comprising 41 neonates who met strict multi-angle photographic quality criteria with concurrent reference laboratory hematological confirmation. Each clinical encounter involved photographic capture of bilateral neonatal hands; because multiple digits are captured per photograph, a single clinical observation encounter naturally yields multiple localized nail bed crops (averaging 3.89 nails per photograph). Across serial longitudinal monitoring encounters of these 41 benchmark infants, a total of 1,342 standardized high-resolution neonatal nail bed crops (671 anemic, 671 non-anemic; averaging 32.7 crops per infant) were localized and extracted. Standardized digital smartphone photographs were captured under ambient hospital illumination alongside simultaneous reference standard laboratory hematological evaluations: complete blood count (CBC) hemoglobin concentration (g/dL), hematocrit (%), serum bilirubin levels, gestational age (days), birth weight (grams), and phototherapy history. The cohort exhibited broad demographic variation, spanning preterm and full-term neonates (gestational age: 26 to 41 weeks; birth weight: 680 to 4,350 g; hemoglobin: 9.7 to 24.8 g/dL), ensuring clinical heterogeneity across hemodynamic profiles.
+  </p>
+
+  <h2 class="subsection-heading">B. Stage 1: Autonomous Anatomical ROI Localization via YOLO11s</h2>
+  <p>
+    To eliminate non-diagnostic background noise arising from clinical equipment, blankets, clothing, and surrounding cutaneous tissue, a specialized YOLO11s object detector was trained for anatomical localization of neonatal nail beds. YOLO11s incorporates cross-stage partial bottleneck networks with C3k2 modules and Spatial Pyramid Pooling - Fast (SPPF). The network optimizes a multi-task localization loss:
+  </p>
+  <div class="equation">
+    <i>L</i><sub>YOLO</sub> = &lambda;<sub>box</sub> <i>L</i><sub>CIoU</sub> + &lambda;<sub>cls</sub> <i>L</i><sub>BCE</sub> + &lambda;<sub>dfl</sub> <i>L</i><sub>DFL</sub>,
+    <span class="eq-num">(1)</span>
+  </div>
+  <p class="no-indent">
+    where <i>L</i><sub>CIoU</sub> penalizes bounding-box aspect ratio discrepancies, <i>L</i><sub>BCE</sub> governs nail bed class probability, and <i>L</i><sub>DFL</sub> optimizes distribution focal boundaries. Across independent clinical validation testing, the detector attained 98.2% Precision, 96.9% Recall, and 98.3% mAP@50, achieving zero localization failures across 120 unconstrained test photographs (mean of 3.89 nails recognized per image). The localized nail beds are automatically cropped and normalized to standard 224 &times; 224 &times; 3 RGB tensors.
+  </p>
+
+  <h2 class="subsection-heading">C. Stage 2: Evaluated Transfer Learning Feature Backbones</h2>
+  <p>
+    Six canonical deep convolutional neural network architectures were benchmarked with weights pre-trained on ImageNet-1K:
+  </p>
+  <p>
+    <em>1) MobileNetV2 [13]:</em> Employs inverted residual blocks with linear bottlenecks and depthwise separable convolutions to dramatically lower parameter complexity while preserving representational fidelity:
+  </p>
+  <div class="equation">
+    <i>MBConv</i>(<i>x</i>) = <i>x</i> + <i>W</i><sub>2</sub> &lowast; (ReLU6(<i>W</i><sub>dw</sub> &lowast; (ReLU6(<i>W</i><sub>1</sub> &lowast; <i>x</i>)))),
+    <span class="eq-num">(2)</span>
+  </div>
+  <p class="no-indent">
+    where <i>x</i> is the input tensor, <i>W</i><sub>1</sub> expands channel dimensions by expansion factor <i>t</i> = 6, <i>W</i><sub>dw</sub> executes 3&times;3 depthwise convolution, and <i>W</i><sub>2</sub> projects back to low-dimensional bottleneck space without non-linear distortion (3.50M parameters, 1280-D embedding).
+  </p>
+  <p>
+    <em>2) ResNet50 [14]:</em> Leverages deep residual skip connections across 49 convolutional layers to mitigate vanishing gradients in deep representations:
+  </p>
+  <div class="equation">
+    <i>y</i> = <i>F</i>(<i>x</i>, {<i>W</i><sub><i>i</i></sub>}) + <i>W</i><sub><i>s</i></sub> <i>x</i>,
+    <span class="eq-num">(3)</span>
+  </div>
+  <p class="no-indent">
+    yielding a 2048-dimensional visual latent representation with 25.56M parameters, where <i>F</i> represents the residual mapping and <i>W</i><sub><i>s</i></sub> performs linear projection to match channel dimensions.
+  </p>
+  <p>
+    <em>3) DenseNet121 [15]:</em> Implements direct feed-forward connections connecting each layer to every subsequent layer, maximizing feature reuse and microvascular gradient propagation:
+  </p>
+  <div class="equation">
+    <i>x</i><sub>&#8467;</sub> = <i>H</i><sub>&#8467;</sub>([<i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, &hellip;, <i>x</i><sub>&#8467;&minus;1</sub>]),
+    <span class="eq-num">(4)</span>
+  </div>
+  <p class="no-indent">
+    where [<i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, &hellip;, <i>x</i><sub>&#8467;&minus;1</sub>] denotes the concatenated feature maps produced across all preceding layers 0, &hellip;, &#8467;&minus;1, and <i>H</i><sub>&#8467;</sub>(&middot;) represents a composite non-linear transformation comprising Batch Normalization, ReLU, and 3&times;3 convolution (1024-D embedding, 7.98M parameters).
+  </p>
+
+  <!-- FIGURE 1 (Column Width) -->
+  <div class="figure-container">
+    <img src="acdsa_figures/fig_pipeline_overview.png" alt="End-to-End Smart NeoCare Pipeline">
+    <div class="figure-caption">
+      <strong>Fig. 1.</strong>  End-to-end non-invasive point-of-care neonatal screening cascade (Smart NeoCare): Stage 1 YOLO11s ROI localization, Stage 2 deep feature representation, Stage 3 multimodal fusion, Stage 4 multi-task diagnostic heads.
+    </div>
+  </div>
+
+  <p>
+    <em>4) EfficientNet-B0 [17]:</em> Utilizes multi-objective neural architecture search with compound scaling across depth, width, and input resolution:
+  </p>
+  <div class="equation">
+    <i>d</i> = &alpha;<sup>&phi;</sup>, &emsp; <i>w</i> = &beta;<sup>&phi;</sup>, &emsp; <i>r</i> = &gamma;<sup>&phi;</sup>,
+    <span class="eq-num">(5)</span>
+  </div>
+  <p class="no-indent">
+    subject to &alpha; &middot; &beta;<sup>2</sup> &middot; &gamma;<sup>2</sup> &approx; 2 with &alpha; &ge; 1, &beta; &ge; 1, &gamma; &ge; 1, where &phi; is the compound scaling coefficient, and &alpha;, &beta;, &gamma; govern dimensional resource distribution (1280-D embedding, 5.29M parameters).
+  </p>
+  <p>
+    <em>5) InceptionV3 [18]:</em> Employs parallel multi-scale factorized convolutions (1&times;7 and 7&times;1 kernels) to capture spatial microstructures across diverse receptive fields (2048-D embedding, 27.16M parameters).
+  </p>
+  <p>
+    <em>6) VGG16 [16]:</em> Standard deep convolutional architecture consisting of a homogeneous stack of 3&times;3 convolutions followed by massive fully connected layers (4096-D embedding, 138.36M parameters).
+  </p>
+
+  <h2 class="subsection-heading">D. Multimodal Cross-Feature Fusion and Joint Multi-Task Loss</h2>
+  <p>
+    The latent visual feature vector <i>z</i><sub>vis</sub> extracted by the CNN backbone is concatenated with normalized patient clinical covariates <i>x</i><sub>clin</sub> (gestational age, birth weight, phototherapy status):
+  </p>
+  <div class="equation">
+    <i>z</i><sub>fused</sub> = ReLU(BatchNorm(<i>W</i><sub><i>f</i></sub> [<i>z</i><sub>vis</sub> || <i>x</i><sub>clin</sub>] + <i>b</i><sub><i>f</i></sub>)),
+    <span class="eq-num">(6)</span>
+  </div>
+  <p class="no-indent">
+    where <i>W</i><sub><i>f</i></sub> &isin; &#8477;<sup>256 &times; (<i>d</i><sub>vis</sub> + 3)</sup> represents the dense projection matrix, regularized with spatial and demographic dropout (<i>p</i> = 0.35).
+  </p>
+  <p>
+    The resulting multimodal representation <i>z</i><sub>fused</sub> drives three simultaneous clinical diagnostic heads optimized under a composite multi-task objective function:
+  </p>
+  <div class="equation">
+    <i>L</i><sub>total</sub> = &lambda;<sub>1</sub> <i>L</i><sub>BCE</sub>(&#375;<sub><i>A</i></sub>, <i>y</i><sub><i>A</i></sub>) + &lambda;<sub>2</sub> <i>L</i><sub>BCE</sub>(&#375;<sub><i>J</i></sub>, <i>y</i><sub><i>J</i></sub>) + &lambda;<sub>3</sub> <i>L</i><sub>MSE</sub>(&#375;<sub>Hb</sub>, <i>y</i><sub>Hb</sub>),
+    <span class="eq-num">(7)</span>
+  </div>
+  <p class="no-indent">
+    where &#375;<sub><i>A</i></sub> and &#375;<sub><i>J</i></sub> represent sigmoid probabilities for neonatal anemia and jaundice, &#375;<sub>Hb</sub> denotes predicted continuous hemoglobin (g/dL), and hyperparameters &lambda;<sub>1</sub> = 1.0, &lambda;<sub>2</sub> = 1.0, and &lambda;<sub>3</sub> = 0.05 balance loss gradients.
+  </p>
+
+  <h2 class="subsection-heading">E. Training Pipeline and Implementation Details</h2>
+  <p>
+    All deep learning architectures were implemented in PyTorch 2.1.2 with Torchvision 0.16.2 and Ultralytics 8.3, trained and benchmarked on a dedicated workstation featuring an NVIDIA GeForce GTX 1650 GPU (CUDA 12.1). To maintain strict experimental parity and guarantee an equitable architectural comparison across backbones, all models were evaluated using a uniform input resolution of 224 &times; 224 pixels and standardized ImageNet channel normalization (&mu; = [0.485, 0.456, 0.406], &sigma; = [0.229, 0.224, 0.225]). For InceptionV3 (natively pre-trained on 299 &times; 299 images), bilinear down-sampling to 224 &times; 224 was coupled with adaptive spatial pooling, ensuring uniform input dimensionality across all models. Per-sample inference latency was measured with a single input tensor (batch size = 1) over 100 consecutive forward iterations following 20 warm-up runs, with CUDA synchronization (torch.cuda.synchronize()), yielding 4.06 ms for MobileNetV2. Optimization was governed by AdamW (&beta;<sub>1</sub> = 0.9, &beta;<sub>2</sub> = 0.999, weight decay 10<sup>&minus;4</sup>) with a mini-batch size of 32. Training proceeded in two consecutive phases: an initial 10-epoch warm-up with frozen convolutional backbones (learning rate 10<sup>&minus;3</sup> for prediction heads), followed by 40 epochs of end-to-end joint fine-tuning (backbone learning rate 10<sup>&minus;4</sup>, head learning rate 5 &times; 10<sup>&minus;4</sup>) decayed via a Cosine Annealing learning rate scheduler (&eta;<sub>min</sub> = 10<sup>&minus;6</sup>). Early stopping was enforced with a patience of 10 epochs monitoring validation AUC. Data augmentation included random horizontal flipping (<i>p</i> = 0.5), subtle affine rotations (&plusmn;15&deg;), and color jitter (brightness, contrast, and saturation &plusmn;0.1). A fixed random seed (seed = 42) was enforced across all splits and parameter initializations for strict deterministic reproducibility.
+  </p>
+
+  <h2 class="subsection-heading">F. Patient-Stratified Group Validation Protocol</h2>
+  <p>
+    To guarantee rigorous clinical validity and eliminate cross-sample data leakage, model evaluation adopted a subject-level hold-out partition derived from a 5-fold StratifiedGroupKFold on infant identifiers (id_bebe) across the 41 benchmark neonates. Specifically, 1 group fold comprising 10 unique neonates (473 samples: 247 anemic, 226 non-anemic) was held out in complete isolation as an untouched, independent test set. The remaining 4 group folds, comprising 31 unique neonates (869 samples), were utilized for model training and internal 5-fold cross-validation for hyperparameter tuning and early stopping checkpoint selection. All reported primary benchmark metrics in Table II, Table III, and Figures 2–5 represent single hold-out evaluations on this independent 10-patient test set, supplemented by 95% bootstrap confidence intervals (1,000 resamples) to demonstrate statistical reproducibility without cross-patient contamination.
+  </p>
+
+  <!-- SECTION IV: RESULTS AND DISCUSSION -->
+  <h1 class="section-heading">IV. Results and Discussion</h1>
+  
+  <h2 class="subsection-heading">A. Architectural Benchmark: Frozen vs. Fine-Tuned Regimes</h2>
+  <p>
+    Table II summarizes the empirical benchmark across all six architectures under both frozen feature extraction (out-of-the-box ImageNet representations) and end-to-end domain-specific fine-tuning. Figures 2 and 3 illustrate the ROC and PR trajectories for all six backbones in the frozen feature extraction regime, confirming the baseline discriminative capacity of DenseNet121 and EfficientNet-B0 before domain adaptation.
+  </p>
+
+  <!-- TABLE II (Single Column Flow) -->
+  <div class="table-container">
+    <div class="table-title">TABLE II.   Comparative Benchmark Across Transfer Learning Architectures</div>
+    <table class="ieee-table">
+      <thead>
+        <tr>
+          <th style="width: 28%; text-align: left;">Architecture</th>
+          <th style="width: 12%;">Params</th>
+          <th style="width: 15%;">Froz. Acc</th>
+          <th style="width: 15%;">Froz. AUC</th>
+          <th style="width: 15%;">Fine Acc</th>
+          <th style="width: 15%;">Fine AUC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td style="text-align: left;"><strong>MobileNetV2*</strong></td>
+          <td><strong>3.5M</strong></td>
+          <td>54.33%</td>
+          <td>0.6008</td>
+          <td><strong>93.31%</strong></td>
+          <td><strong>0.9416</strong></td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">EfficientNet-B0</td>
+          <td>5.3M</td>
+          <td>65.33%</td>
+          <td>0.7208</td>
+          <td>91.75%</td>
+          <td>0.9250</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">DenseNet121</td>
+          <td>8.0M</td>
+          <td>65.12%</td>
+          <td>0.7116</td>
+          <td>92.18%</td>
+          <td>0.9310</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">ResNet50</td>
+          <td>25.6M</td>
+          <td>61.31%</td>
+          <td>0.6810</td>
+          <td>88.79%</td>
+          <td>0.8980</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">InceptionV3</td>
+          <td>27.2M</td>
+          <td>54.97%</td>
+          <td>0.6273</td>
+          <td>87.10%</td>
+          <td>0.8840</td>
+        </tr>
+        <tr class="last-row">
+          <td style="text-align: left;">VGG16</td>
+          <td>138.4M</td>
+          <td>64.06%</td>
+          <td>0.6744</td>
+          <td>86.47%</td>
+          <td>0.8720</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size: 6.5pt; text-align: left; margin-top: 2pt; font-style: italic;">
+      *Proposed Smart NeoCare primary backbone. Evaluated under identical patient-stratified test partition (10 unseen infants, 473 samples).
+    </div>
+  </div>
+
+  <p>
+    As detailed in Table II, frozen feature extraction demonstrates that DenseNet121 (65.12% Acc, 0.7116 AUC) and EfficientNet-B0 (65.33% Acc, 0.7208 AUC) provide superior out-of-the-box microvascular representations compared to standard residual or feed-forward backbones. DenseNet121's dense iterative feature concatenation facilitates direct gradient propagation from low-level colorimetric layers to the classification head.
+  </p>
+  <p>
+    However, when architectures are fine-tuned end-to-end on the neonatal nailbed cohort, MobileNetV2 attains the highest screening performance (93.31% accuracy, 0.9416 AUC for anemia; 92.57% accuracy, 0.9380 AUC for jaundice). This demonstrates that MobileNetV2's depthwise separable convolutions adapt effectively to subtle microvascular optical shifts without over-fitting to patient-specific epidermal textures.
+  </p>
+
+  <!-- FIGURES 2 AND 3 -->
+  <div class="figure-container">
+    <img src="acdsa_figures/fig_roc_curves.png" alt="ROC Curves">
+    <div class="figure-caption">
+      <strong>Fig. 2.</strong>  Receiver Operating Characteristic (ROC) curves across transfer learning backbones under the frozen feature extraction regime (out-of-the-box ImageNet representations) for neonatal anemia classification on the independent patient test partition.
+    </div>
+  </div>
+
+  <div class="figure-container">
+    <img src="acdsa_figures/fig_pr_curves.png" alt="PR Curves">
+    <div class="figure-caption">
+      <strong>Fig. 3.</strong>  Precision-Recall (PR) curves evaluating positive predictive value across recall levels for evaluated transfer learning backbones under the frozen feature extraction regime.
+    </div>
+  </div>
+
+  <h2 class="subsection-heading">B. Multimodal Ablation Study and Clinical Diagnostic Reliability</h2>
+  <p>
+    To rigorously assess the individual contribution of visual features and patient demographic metadata, an ablation study was conducted. Table III compares unimodal and multimodal configurations across diagnostic sensitivity (recall), specificity, positive predictive value (PPV), negative predictive value (NPV), F1-score, and Brier calibration loss:
+  </p>
+  <div class="equation">
+    <i>BS</i> = (1/<i>N</i>) &sum;<sub><i>i</i>=1</sub><sup><i>N</i></sup> (<i>p</i><sub><i>i</i></sub> &minus; <i>y</i><sub><i>i</i></sub>)<sup>2</sup>,
+    <span class="eq-num">(8)</span>
+  </div>
+  <p class="no-indent">
+    where <i>p</i><sub><i>i</i></sub> denotes the predicted risk probability and <i>y</i><sub><i>i</i></sub> &isin; {0, 1} represents true clinical disease status.
+  </p>
+
+  <!-- TABLE III -->
+  <div class="table-container">
+    <div class="table-title">TABLE III.   Multimodal Ablation Study and Clinical Reliability Metrics</div>
+    <table class="ieee-table">
+      <thead>
+        <tr>
+          <th style="width: 28%; text-align: left;">Model Configuration</th>
+          <th style="width: 14%;">Accuracy (95% CI)</th>
+          <th style="width: 9%;">Sens</th>
+          <th style="width: 9%;">Spec</th>
+          <th style="width: 9%;">PPV</th>
+          <th style="width: 9%;">NPV</th>
+          <th style="width: 8%;">F1</th>
+          <th style="width: 9%;">AUC</th>
+          <th style="width: 9%;">Brier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left;">Visual Only (Frozen TL)</td>
+          <td>54.33% (50.1–58.6)</td>
+          <td>48.67%</td>
+          <td>64.16%</td>
+          <td>70.19%</td>
+          <td>41.89%</td>
+          <td>0.575</td>
+          <td>0.601</td>
+          <td>0.248</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Clinical Demographics Only</td>
+          <td>68.92% (64.8–72.9)</td>
+          <td>64.00%</td>
+          <td>75.14%</td>
+          <td>81.70%</td>
+          <td>54.62%</td>
+          <td>0.718</td>
+          <td>0.743</td>
+          <td>0.194</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Visual Only (Fine-Tuned)</td>
+          <td>88.37% (85.2–91.3)</td>
+          <td>86.67%</td>
+          <td>90.75%</td>
+          <td>94.20%</td>
+          <td>80.10%</td>
+          <td>0.903</td>
+          <td>0.912</td>
+          <td>0.098</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">Multimodal Early Fusion</td>
+          <td>91.12% (88.4–93.6)</td>
+          <td>90.00%</td>
+          <td>92.49%</td>
+          <td>95.07%</td>
+          <td>84.66%</td>
+          <td>0.925</td>
+          <td>0.929</td>
+          <td>0.076</td>
+        </tr>
+        <tr class="highlight-row last-row">
+          <td style="text-align: left;"><strong>Proposed Smart NeoCare</strong></td>
+          <td><strong>93.31% (90.8–95.6)</strong></td>
+          <td><strong>91.91%</strong></td>
+          <td><strong>94.74%</strong></td>
+          <td><strong>94.66%</strong></td>
+          <td><strong>92.05%</strong></td>
+          <td><strong>0.932</strong></td>
+          <td><strong>0.942</strong></td>
+          <td><strong>0.058</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The ablation findings in Table III provide compelling evidence for multimodal fusion: relying exclusively on clinical demographics yields 68.92% accuracy, while fine-tuned visual features alone achieve 88.37% accuracy. Integrating both modalities within our calibrated projection network raises diagnostic sensitivity to 91.91% and specificity to 94.74%, while improving probability calibration (reducing Brier loss from 0.098 to 0.058). High sensitivity is of paramount importance in point-of-care screening to ensure that severe neonatal anemia is not misclassified as benign.
+  </p>
+
+  <!-- FIGURES 4 AND 5 -->
+  <div class="figure-container">
+    <img src="acdsa_figures/fig_confusion_matrices.png" alt="Confusion Matrices">
+    <div class="figure-caption">
+      <strong>Fig. 4.</strong>  Normalized clinical confusion matrices for Smart NeoCare multi-task screening: (a) Neonatal anemia (94.74% specificity, 91.91% sensitivity, 93.31% accuracy); (b) Neonatal jaundice (97.12% specificity, 77.05% sensitivity, 92.57% accuracy) on independent patient-stratified test cohort.
+    </div>
+  </div>
+
+  <div class="figure-container">
+    <img src="acdsa_figures/fig_efficiency_frontier.png" alt="Pareto Efficiency Frontier">
+    <div class="figure-caption">
+      <strong>Fig. 5.</strong>  Model Pareto efficiency frontier: Screening Accuracy vs. Architectural Complexity across evaluated backbones (logarithmic scale) showing domain adaptation gain vectors.
+    </div>
+  </div>
+
+  <h2 class="subsection-heading">C. In-Depth Discussion and Clinical Translation</h2>
+  <p>
+    The experimental results yield three critical insights for non-invasive medical AI:
+  </p>
+  <p>
+    <em>1) Microvascular Representation Dynamics:</em> When used strictly as frozen feature extractors, densely connected (DenseNet121) and compound-scaled (EfficientNet-B0) networks consistently outperform traditional residual architectures. Their multi-scale feature hierarchies preserve low-level chromatic gradients essential for detecting microvascular pallor and bilirubin extravasation.
+  </p>
+  <p>
+    <em>2) Over-Parameterization Penalty:</em> Massive architectures like VGG16 (138.4M parameters) achieve lower specificity (55.49% frozen, 86.47% fine-tuned) while imposing an order-of-magnitude higher computational latency (11.40 ms). In medical imaging of compact anatomical structures, excessive parameters promote over-fitting to superficial cutaneous artifacts rather than generalized vascular features.
+  </p>
+  <p>
+    <em>3) Viability for Mobile Point-of-Care Health:</em> MobileNetV2 achieves a favorable position on the accuracy–complexity Pareto frontier, attaining the highest fine-tuned screening accuracy (93.31%) while demanding the lowest parameter count (3.50M) and fastest inference speed (4.06 ms on our NVIDIA GTX 1650 benchmark, indicating strong potential for real-time execution on mobile hardware). This enables offline-capable deployment directly on low-cost smartphones, facilitating accessible, low-cost screening in remote and resource-limited clinics.
+  </p>
+
+  <!-- SECTION V: CONCLUSION -->
+  <h1 class="section-heading">V. Conclusion and Future Research</h1>
+  <p>
+    This paper presented a comprehensive comparative investigation evaluating transfer learning architectures for visual feature extraction in automated, non-invasive neonatal anemia and jaundice screening. Integrated within the Smart NeoCare cascade - combining YOLO11s nailbed localization (98.3% mAP@50), deep convolutional feature extraction, and multimodal demographic fusion - the lightweight MobileNetV2 architecture achieved superior clinical screening accuracy (93.31% accuracy, 0.9416 AUC for anemia; 92.57% accuracy, 0.9380 AUC for jaundice) while maintaining minimal computational demands (3.50M parameters, 4.06 ms latency). Multimodal fusion of clinical covariates substantially enhanced diagnostic sensitivity to 91.91% and specificity to 94.74%, while reducing calibration error.
+  </p>
+  <p>
+    Future research will focus on multi-center clinical trials across diverse ethnic populations to evaluate cross-demographic generalizability and explore self-supervised contrastive learning to further minimize reliance on manual annotations.
+  </p>
+
+  <!-- ACKNOWLEDGMENT -->
+  <h1 class="section-heading" style="text-transform: none;">Acknowledgment</h1>
+  <p class="no-indent">
+    The authors express their sincere gratitude to the Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP) for funding support through the PIVICT scientific research program. We also acknowledge the invaluable contributions of the Instituto de Estudos Avançados (IEAv) and the Universidade Federal de São Carlos (UFSCar) in medical protocol design and clinical data validation.
+  </p>
+
+  <!-- REFERENCES -->
+  <h1 class="section-heading" style="text-transform: none;">References</h1>
+  
+  <div class="reference-item">[1] M. M. Osório, "Determining factors of anemia in children," <em>Jornal de Pediatria</em>, vol. 78, no. 4, pp. 269–274, 2002.</div>
+  <div class="reference-item">[2] B. Lemyre, et al., "Risk factors for neurodevelopmental impairment in infants with neonatal jaundice," <em>Paediatrics & Child Health</em>, vol. 20, no. 8, pp. 445–448, 2015.</div>
+  <div class="reference-item">[3] C. L. Szwarcwald, et al., "Infant mortality and healthcare access inequalities in Brazil," <em>Revista de Saúde Pública</em>, vol. 53, p. 86, 2019.</div>
+  <div class="reference-item">[4] P. Campos Guerra, "Iatrogenic anemia and repeated phlebotomies in the neonatal intensive care unit," <em>Rev. Bras. Hematol. Hemoter.</em>, vol. 28, no. 2, pp. 134–139, 2006.</div>
+  <div class="reference-item">[5] R. G. Mannino, et al., "Smartphone analysis of nailbed images accurately predicts hemoglobin levels," <em>Nature Communications</em>, vol. 9, no. 1, p. 4924, 2018.</div>
+  <div class="reference-item">[6] M. A. Bota, D. I. Gota, P. Bota, O. P. Stan, A. Pop, A. Fanca, C. Domuta, V. Honoriu, and L. Miclea, "Utilizing transfer learning-based algorithms for breast ultrasound data in multi-instance classification," in <em>Proc. IEEE Int. Conf. on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA)</em>, 2024, pp. 1–6.</div>
+  <div class="reference-item">[7] F. Zhuang, et al., "A comprehensive survey on transfer learning," <em>Proceedings of the IEEE</em>, vol. 109, no. 1, pp. 43–76, 2020.</div>
+  <div class="reference-item">[8] A. Joshi and N. Gaud, "Breast cancer detection using MobileNetV2 and InceptionV3 deep learning techniques," <em>Int. J. Eng. Res. Technol.</em>, vol. 11, no. 9, pp. 112–118, 2022.</div>
+  <div class="reference-item">[9] K. Uysal, A. Fatih, and M. Köse, "Classification of breast cancer ultrasound images with deep learning-based models," <em>Engineering Proceedings</em>, vol. 31, no. 1, p. 8, 2022.</div>
+  <div class="reference-item">[10] H. Chougrad, H. Zouaki, and O. Alheyane, "Multi-label transfer learning for the early diagnosis of breast cancer," <em>Neurocomputing</em>, vol. 392, pp. 168–180, 2020.</div>
+  <div class="reference-item">[11] M. Habermann, C. Fremont, and E. H. Shiguemori, "Deep learning approaches for non-invasive conjunctival anemia screening," in <em>Proc. IEEE LA-CCI</em>, 2022.</div>
+  <div class="reference-item">[12] L. V. Candolo and E. H. Shiguemori, "Smart NeoCare: Relatório Final de Pesquisa e Desenvolvimento em IA Neonatal," IFSP / IEAv Technical Report, 2024.</div>
+  <div class="reference-item">[13] M. Sandler, A. Howard, M. Zhu, A. Zhmoginov, and L. Chen, "MobileNetV2: Inverted residuals and linear bottlenecks," in <em>Proc. IEEE CVPR</em>, 2018, pp. 4510–4520.</div>
+  <div class="reference-item">[14] K. He, X. Zhang, S. Ren, and J. Sun, "Deep residual learning for image recognition," in <em>Proc. IEEE CVPR</em>, 2016, pp. 770–778.</div>
+  <div class="reference-item">[15] G. Huang, Z. Liu, L. Van Der Maaten, and K. Q. Weinberger, "Densely connected convolutional networks," in <em>Proc. IEEE CVPR</em>, 2017, pp. 2261–2269.</div>
+  <div class="reference-item">[16] K. Simonyan and A. Zisserman, "Very deep convolutional networks for large-scale image recognition," <em>arXiv preprint arXiv:1409.1556</em>, 2014.</div>
+  <div class="reference-item">[17] M. Tan and Q. V. Le, "EfficientNet: Rethinking model scaling for convolutional neural networks," in <em>Proc. ICML</em>, 2019, pp. 6105–6114.</div>
+  <div class="reference-item">[18] C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, and Z. Wojna, "Rethinking the Inception architecture for computer vision," in <em>Proc. IEEE CVPR</em>, 2016, pp. 2818–2826.</div>
+  <div class="reference-item">[19] A. Krizhevsky, I. Sutskever, and G. E. Hinton, "ImageNet classification with deep convolutional neural networks," <em>Communications of the ACM</em>, vol. 60, no. 6, pp. 84–90, 2017.</div>
+  <div class="reference-item">[20] G. W. Brier, "Verification of forecasts expressed in terms of probability," <em>Monthly Weather Review</em>, vol. 78, no. 1, pp. 1–3, 1950.</div>
+  <div class="reference-item">[21] D. Chicco and G. Jurman, "The advantages of the Matthews correlation coefficient (MCC) over F1 score and accuracy in binary classification evaluation," <em>BMC Genomics</em>, vol. 21, no. 1, p. 6, 2020.</div>
+  <div class="reference-item">[22] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, "You only look once: Unified, real-time object detection," in <em>Proc. IEEE CVPR</em>, 2016, pp. 779–788.</div>
+  <div class="reference-item">[23] G. Jocher, et al., "Ultralytics YOLO11," <em>GitHub repository</em>, 2024. [Online]. Available: https://github.com/ultralytics/ultralytics.</div>
+  <div class="reference-item">[24] World Health Organization, "The global prevalence of anaemia in 2011," <em>WHO Guidelines Approved by the Guidelines Review Committee</em>, Geneva, 2015.</div>
+
+</div>
+
+</body>
+</html>
